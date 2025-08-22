@@ -1,0 +1,122 @@
+/* NavigationControls Styling */
+.navigation-controls {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--light-surface);
+  border-bottom: 1px solid var(--light-border);
+  gap: var(--spacing-sm);
+  transition: all var(--transition-normal);
+}
+
+.dark .navigation-controls {
+  background: var(--dark-surface);
+  border-color: var(--dark-border);
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--light-bg);
+  color: var(--light-text-primary);
+  border: 1px solid var(--light-border);
+  border-radius: var(--border-radius-md);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 1px 3px var(--light-shadow);
+}
+
+.nav-button:hover:not(.disabled) {
+  background: var(--light-bg-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px var(--light-shadow);
+}
+
+.nav-button:active:not(.disabled) {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px var(--light-shadow);
+}
+
+.nav-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--light-bg-disabled);
+}
+
+.nav-button .icon {
+  margin-right: var(--spacing-xs);
+  font-size: 16px;
+}
+
+.nav-button.back .icon {
+  margin-right: var(--spacing-xs);
+  margin-left: 0;
+}
+
+.nav-button.forward .icon {
+  margin-left: var(--spacing-xs);
+  margin-right: 0;
+}
+
+/* Dark theme */
+.dark .nav-button {
+  background: var(--dark-bg);
+  color: var(--dark-text-primary);
+  border-color: var(--dark-border);
+  box-shadow: 0 1px 3px var(--dark-shadow);
+}
+
+.dark .nav-button:hover:not(.disabled) {
+  background: var(--dark-bg-hover);
+  box-shadow: 0 2px 5px var(--dark-shadow);
+}
+
+.dark .nav-button:active:not(.disabled) {
+  box-shadow: 0 1px 2px var(--dark-shadow);
+}
+
+.dark .nav-button.disabled {
+  background: var(--dark-bg-disabled);
+}
+
+/* Button animations */
+.nav-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%, -50%);
+  transform-origin: 50% 50%;
+}
+
+.nav-button:focus:not(:active)::after {
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}

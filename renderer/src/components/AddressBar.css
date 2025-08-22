@@ -1,0 +1,175 @@
+/* AddressBar Styling */
+.address-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--light-surface);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 2px 10px var(--light-shadow);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  flex: 1;
+  max-width: 800px;
+  position: relative;
+  transition: all var(--transition-normal);
+  border: 1px solid var(--light-border);
+  margin: 0 var(--spacing-lg);
+}
+
+/* Loading state animation for address bar */
+@keyframes pulse-loading {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+.address-bar .input-loading {
+  animation: pulse-loading 1.5s infinite ease-in-out;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.address-bar:focus-within {
+  box-shadow: 0 4px 12px var(--light-shadow);
+  border-color: var(--light-primary);
+  transform: translateY(-1px);
+}
+
+.address-bar-icon {
+  color: var(--light-text-secondary);
+  margin-right: var(--spacing-sm);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.address-bar input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--light-text-primary);
+  box-shadow: none;
+  outline: none;
+}
+
+.address-bar button {
+  background: var(--light-primary);
+  border: none;
+  color: white;
+  font-size: 18px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 4px var(--light-shadow);
+  border-radius: var(--border-radius-md);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.address-bar button:hover {
+  background: #3b78e7;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px var(--light-shadow);
+}
+
+.dark .address-bar {
+  background: var(--dark-surface);
+  box-shadow: 0 2px 10px var(--dark-shadow);
+  border-color: var(--dark-border);
+}
+
+.dark .address-bar:focus-within {
+  box-shadow: 0 4px 12px var(--dark-shadow);
+  border-color: var(--dark-primary);
+}
+
+.dark .address-bar-icon {
+  color: var(--dark-text-secondary);
+}
+
+.dark .address-bar input {
+  color: var(--dark-text-primary);
+}
+
+.dark .address-bar input::placeholder {
+  color: var(--dark-text-secondary);
+}
+
+.dark .address-bar button {
+  background: var(--dark-primary);
+  color: var(--dark-bg);
+  box-shadow: 0 2px 4px var(--dark-shadow);
+}
+
+.dark .address-bar button:hover {
+  background: #7aa5f8;
+  box-shadow: 0 4px 8px var(--dark-shadow);
+}
+
+/* Disabled state for buttons */
+.address-bar button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Loading state for dark theme */
+.dark .address-bar .input-loading {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Suggestions dropdown */
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--light-surface);
+  border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+  box-shadow: 0 4px 12px var(--light-shadow);
+  border: 1px solid var(--light-border);
+  border-top: none;
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-top: 2px;
+  pointer-events: auto;
+}
+
+.suggestion-item {
+  padding: var(--spacing-sm) var(--spacing-md);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  user-select: none; /* Prevent text selection */
+  border-bottom: 1px solid var(--light-border);
+}
+
+.suggestion-item:hover {
+  background-color: rgba(66, 133, 244, 0.1);
+}
+
+.suggestion-icon {
+  margin-right: var(--spacing-sm);
+  color: var(--light-text-secondary);
+}
+
+.dark .suggestions {
+  background: var(--dark-surface);
+  box-shadow: 0 4px 12px var(--dark-shadow);
+  border-color: var(--dark-border);
+}
+
+.dark .suggestion-item:hover {
+  background-color: rgba(138, 180, 248, 0.1);
+}
+
+.dark .suggestion-icon {
+  color: var(--dark-text-secondary);
+}

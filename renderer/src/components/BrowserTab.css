@@ -1,0 +1,204 @@
+/* BrowserTab Styling */
+.browser-tab-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--light-bg);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.dark .browser-tab-container {
+  background: var(--dark-bg);
+}
+
+/* Loading indicator */
+.loading-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: var(--spacing-xl);
+  color: var(--light-text-secondary);
+  background: var(--light-bg);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.dark .loading-indicator {
+  color: var(--dark-text-secondary);
+  background: var(--dark-bg);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--light-primary);
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: var(--spacing-md);
+  position: relative;
+}
+
+.spinner::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--light-primary-light);
+  opacity: 0.6;
+  animation: spin 1.5s linear infinite reverse;
+}
+
+.dark .spinner {
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--dark-primary);
+}
+
+.dark .spinner::after {
+  border-top-color: var(--dark-primary-light);
+}
+
+/* Error container */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: var(--spacing-xl);
+  color: var(--light-text-primary);
+  background: var(--light-bg);
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.dark .error-container {
+  color: var(--dark-text-primary);
+  background: var(--dark-bg);
+}
+
+.error-container h3 {
+  font-size: 24px;
+  margin-bottom: var(--spacing-md);
+  color: var(--light-danger);
+}
+
+.dark .error-container h3 {
+  color: var(--dark-danger);
+}
+
+.error-container p {
+  margin-bottom: var(--spacing-lg);
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+.open-external-btn {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--light-primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px var(--light-shadow);
+}
+
+.open-external-btn:hover {
+  background: var(--light-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--light-shadow);
+}
+
+.dark .open-external-btn {
+  background: var(--dark-primary);
+  box-shadow: 0 2px 8px var(--dark-shadow);
+}
+
+.dark .open-external-btn:hover {
+  background: var(--dark-primary-dark);
+  box-shadow: 0 4px 12px var(--dark-shadow);
+}
+
+/* iframe */
+iframe {
+  flex: 1;
+  border: none;
+  width: 100%;
+  height: 100%;
+  background: white;
+  transition: opacity var(--transition-normal);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.dark iframe {
+  filter: invert(10%);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 3px;
+  background: linear-gradient(90deg, var(--light-primary), var(--light-primary-light));
+  width: 0;
+  transition: width 0.3s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(66, 133, 244, 0.5);
+  border-radius: 0 3px 3px 0;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: progress-shine 1.5s infinite;
+  transform: translateX(-100%);
+}
+
+@keyframes progress-shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.dark .progress-bar {
+  background: linear-gradient(90deg, var(--dark-primary), var(--dark-primary-light));
+  box-shadow: 0 0 10px rgba(122, 165, 248, 0.3);
+}
+
+.dark .progress-bar::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}

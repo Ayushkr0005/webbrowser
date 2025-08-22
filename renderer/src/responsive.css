@@ -1,0 +1,215 @@
+/* Responsive Design Improvements */
+
+/* Base styles for all screen sizes */
+:root {
+  --mobile-breakpoint: 480px;
+  --tablet-breakpoint: 768px;
+  --laptop-breakpoint: 1024px;
+  --desktop-breakpoint: 1280px;
+}
+
+/* Mobile Styles (up to 480px) */
+@media screen and (max-width: 480px) {
+  .app-container {
+    padding: 0.5rem;
+  }
+
+  .browser-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .theme-toggle {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .tabs-container {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .tab {
+    min-width: 100px;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .address-bar {
+    width: 100%;
+  }
+
+  .navigation-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav-button {
+    padding: 0.4rem;
+    font-size: 0.7rem;
+  }
+
+  .nav-button .icon {
+    margin-right: 0;
+  }
+
+  .bookmark-list {
+    max-height: 120px;
+  }
+
+  .bookmarks-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .news-feed {
+    padding: 0.5rem;
+  }
+
+  .feed-container {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .feed-category {
+    padding: 0.75rem;
+  }
+
+  .browser-view {
+    height: calc(100vh - 220px);
+  }
+}
+
+/* Tablet Styles (481px - 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .app-container {
+    padding: 0.75rem;
+  }
+
+  .tabs-container {
+    max-width: 80%;
+    overflow-x: auto;
+  }
+
+  .toolbar {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .address-bar {
+    flex: 1 1 100%;
+    order: -1;
+  }
+
+  .navigation-controls {
+    flex: 1 1 auto;
+  }
+
+  .bookmark-list {
+    max-height: 150px;
+  }
+
+  .bookmarks-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .feed-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .browser-view {
+    height: calc(100vh - 200px);
+  }
+}
+
+/* Laptop Styles (769px - 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .app-container {
+    padding: 1rem;
+  }
+
+  .tabs-container {
+    max-width: 85%;
+  }
+
+  .bookmarks-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .feed-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* Desktop Styles (1025px - 1280px) */
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  .bookmarks-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .feed-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+/* Large Desktop Styles (1281px and above) */
+@media screen and (min-width: 1281px) {
+  .app-container {
+    padding: 1.5rem;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .bookmarks-container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .feed-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .browser-header,
+  .toolbar,
+  .bookmark-list,
+  .navigation-controls {
+    display: none !important;
+  }
+
+  .browser-view {
+    height: auto;
+    overflow: visible;
+  }
+
+  .browser-view iframe {
+    height: auto;
+    min-height: 100vh;
+  }
+}
+
+/* Orientation Specific Styles */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+  .browser-header {
+    padding: 0.25rem;
+  }
+
+  .bookmark-list {
+    max-height: 80px;
+  }
+
+  .browser-view {
+    height: calc(100vh - 150px);
+  }
+}

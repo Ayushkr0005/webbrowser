@@ -1,0 +1,22 @@
+{
+  "name": "my-browser",
+  "version": "1.0.0",
+  "description": "Built with Electron, React, Node, and MongoDB",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run start --prefix renderer\"",
+    "dev": "npm run start --prefix renderer",
+    "web": "concurrently \"npm run server\" \"npm run start --prefix renderer\"",
+    "electron": "electron electron/main.js",
+    "server": "npm start --prefix backend",
+    "install-all": "npm install && npm install --prefix backend && npm install --prefix renderer",
+    "build": "npm run build --prefix renderer"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.2.0",
+    "electron": "^37.2.4"
+  }
+}
