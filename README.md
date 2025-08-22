@@ -104,4 +104,3 @@ config/.env     # Environment variables (not committed)
 - `npm run electron` – launch Electron
 
 ---
-Maintained by Ayush. PRs and issues welcome.
