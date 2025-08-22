@@ -103,8 +103,5 @@ config/.env     # Environment variables (not committed)
 - `npm run build` – build renderer for production
 - `npm run electron` – launch Electron
 
-## 📜 License
-MIT
-
 ---
 Maintained by Ayush. PRs and issues welcome.
